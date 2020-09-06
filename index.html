@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" class="input-form hidden">
+        <h1>Add a new book</h1>
+        <div class="input">
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author" required>
+        </div>
+        <div class="input">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div class="input">
+            <label for="length">Length:</label>
+            <input type="number" name="length" id="length">
+        </div>
+        <div class="input">
+            <label for="image">Image:</label>
+            <input type="text" name="image" id="image">
+        </div>
+        <div class="input read">
+            <label for="read">Read:</label>
+            <input type="checkbox" name="read" id="read">
+        </div>
+        <div class="submit">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <div class="card-section">
+        <div class="book-card">
+            <div class="book-image">
+                <img src="https://specials-images.forbesimg.com/imageserve/5efa33eed4034b0007bf4b5c/960x0.jpg?fit=scale"
+                    alt="">
+            </div>
+            <div class="book-information">
+                <div class="information-section">
+                    <p class="information">Author:</p>
+                    <p class="author">JK rowling</p>
+                </div>
+                <div class="information-section">
+                    <p class="information">Title:</p>
+                    <p class="title">Haru potu</p>
+                </div>
+                <div class="information-section">
+                    <p class="information">Length:</p>
+                    <p class="length">150</p>
+                </div>
+                <div class="information-section">
+                    <p class="information">Read:</p>
+                    <p class="read">Yes</p>
+                </div>
+            </div>
+            <div class="book-card-bottom">
+                <button class="remove-book">Delete</button>
+                <button class="mark-read">Mark as read</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- <div class="card">
+    <div class="card-top">
+        <div class="new-book">
+            <button class="new-book-button">New book</button>
+        </div>
+        <div class="prev-next">
+            <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            </svg>
+            <svg width="30px" height="30px" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+            </svg>
+        </div>
+    </div>
+    <div class="book-card">
+        <div class="book-image">
+            <img src="https://specials-images.forbesimg.com/imageserve/5efa33eed4034b0007bf4b5c/960x0.jpg?fit=scale"
+                alt="">
+        </div>
+        <div class="book-information">
+            <div class="information-section">
+                <p class="information">Author:</p>
+                <p class="author">JK rowling</p>
+            </div>
+            <div class="information-section">
+                <p class="information">Title:</p>
+                <p class="title">Haru potu</p>
+            </div>
+            <div class="information-section">
+                <p class="information">Length:</p>
+                <p class="length">150</p>
+            </div>
+            <div class="information-section">
+                <p class="information">Read:</p>
+                <p class="read">Yes</p>
+            </div>
+        </div>
+        <div class="book-card-bottom">
+            <button class="remove-book">Delete</button>
+            <button class="mark-read">Mark as read</button>
+        </div>
+    </div>
+</div> -->
