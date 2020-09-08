@@ -2,7 +2,16 @@ const form = document.querySelector('form');
 const cardSection = document.querySelector('.card-section');
 const container = document.querySelector('.container');
 const newBook = document.querySelector('.new-book');
-const myLibrary = [];
+let myLibrary = [];
+
+if(localStorage.getItem('book')) { 
+  form.classList.toggle('hidden');
+  container.classList.toggle('hidden');
+  retrieveFromStorage();
+  updateCardsSection();
+} else {
+  myLibrary = [];
+}
 
 function Book(author, title, pages, image, read) {
   this.author = author;
@@ -29,7 +38,7 @@ newBook.addEventListener('click', () => {
   container.classList.toggle('hidden');
 });
 
-function addBookToLibrary() {
+function addBookToLibrary(e) {
   let newBook = new Book(
     form.author.value,
     form.title.value,
@@ -38,6 +47,30 @@ function addBookToLibrary() {
     form.read.checked
   );
   myLibrary.push(newBook);
+  populateStorage(myLibrary);
+}
+
+function populateStorage(e) {
+  localStorage.setItem('book', JSON.stringify(e));
+
+}
+
+function deleteFromStorage() {
+  localStorage.removeItem('book');
+}
+
+function retrieveFromStorage() {
+  let parsedLibrary = JSON.parse(localStorage.getItem('book'))
+  parsedLibrary.forEach(e => {
+    let newBook = new Book(
+      e.author,
+      e.title,
+      e.length,
+      e.image,
+      e.read
+    );
+    myLibrary.push(newBook);
+  })
 }
 
 function updateCardsSection() {
@@ -60,13 +93,12 @@ function updateCardsSection() {
                               <p class="information">Title:</p>
                               <p class="title">${el.title}</p>
                           </div>`;
-    if (el.pages) {
+    if (el.pages != '' || el.pages != undefined) {
       card.querySelector('.book-information').innerHTML += `<div class="information-section">
                               <p class="information">Length:</p>
                               <p class="length">${el.pages}</p>
                           </div>`;
     }
-
     card.querySelector('.book-information').innerHTML += `<div class="information-section">
                               <p class="information">Read:</p>
                               <p class="length">${el.read ? 'Yes' : 'No'}</p>
@@ -85,10 +117,12 @@ function updateCardsSection() {
 
 function markAsRead(e) {
   myLibrary[e.target.dataset.cardid].toggleRead();
+  localStorage.setItem(`read${e.target.dataset.cardid}`, myLibrary[e.target.dataset.cardid].read);
   updateCardsSection();
 }
 
 function deleteBook(e) {
   myLibrary.splice(e.target.dataset.cardid, 1);
+  deleteFromStorage(e.target.dataset.cardid);
   updateCardsSection();
 }
